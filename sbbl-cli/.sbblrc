@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "taskflow",
+    "created": "2025-11-30T09:50:40.763Z"
+  },
+  "paths": {
+    "blueprint": "./BLUEPRINT.md",
+    "memory": "./memory",
+    "docs": "./docs"
+  }
+}

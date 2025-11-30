@@ -1,0 +1,122 @@
+# {{meta.name}} - Blueprint
+
+> **Version**: {{meta.version}}
+> **Created**: {{meta.createdAt}}
+> **Author**: {{meta.author}}
+
+---
+
+## 1. The Spark (Ý Tưởng Cốt Lõi)
+
+### Vision
+{{spark.vision}}
+
+### Target Audience
+{{spark.targetAudience}}
+
+### The Problem
+{{spark.problem}}
+
+### The Solution
+{{spark.solution}}
+
+---
+
+## 2. Tech Stack
+
+### Frontend
+{{#each techStack.frontend}}
+- {{this}}
+{{else}}
+- (Not specified)
+{{/each}}
+
+### Backend
+{{#each techStack.backend}}
+- {{this}}
+{{else}}
+- (Not specified)
+{{/each}}
+
+### Database
+{{#each techStack.database}}
+- {{this}}
+{{else}}
+- (Not specified)
+{{/each}}
+
+### Infrastructure
+{{#each techStack.infrastructure}}
+- {{this}}
+{{else}}
+- (Not specified)
+{{/each}}
+
+### AI Components
+{{#each techStack.ai}}
+- {{this}}
+{{else}}
+- (Not specified)
+{{/each}}
+
+---
+
+## 3. Architecture
+
+### Authentication
+{{architecture.auth}}
+
+### Data Flow
+{{#if architecture.dataFlow}}
+{{architecture.dataFlow}}
+{{else}}
+(Not specified)
+{{/if}}
+
+### Diagram (Mermaid)
+```mermaid
+{{#if architecture.diagram}}
+{{architecture.diagram}}
+{{else}}
+graph TD
+    A[User] --> B[Client]
+    B --> C[Server]
+    C --> D[Database]
+{{/if}}
+```
+
+---
+
+## 4. Database Schema
+
+{{#if database.schema}}
+```
+{{database.schema}}
+```
+{{else}}
+(Not specified)
+{{/if}}
+
+---
+
+## 5. Roadmap
+
+{{#each roadmap}}
+### {{phase}} ({{duration}})
+{{#each goals}}
+- [ ] {{this}}
+{{/each}}
+
+{{else}}
+- [ ] Phase 1: MVP
+{{/each}}
+
+---
+
+## 6. Business Rules
+
+{{#each businessRules}}
+- {{this}}
+{{else}}
+- (No specific business rules defined yet)
+{{/each}}
