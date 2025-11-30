@@ -1,464 +1,188 @@
-# SBBL Template Library
+# 📋 SBBL Project Templates
 
-Welcome to the SBBL template library! These are pre-built blueprints for common use cases.
+Here are 20 curated project templates to help you get started with SBBL. 
 
-## 🚀 How to Use
+> **💡 Note:** SBBL is **technology agnostic**. These templates provide recommended stacks, but you are free to swap any component (e.g., replace Next.js with Vue, or Node.js with Go) in your Blueprint.
 
-1. **Select Template**: Choose the template that best fits your idea.
-2. **Initialize**: Use CLI to generate blueprint from template.
-   ```bash
-   sbbl init --template <template-name>
-   ```
-3. **Customize**: Fill in project-specific details (name, vision, business rules).
-4. **Build**: Use the finalized blueprint with AI.
+## 🚀 Web Applications
 
----
+### 1. SaaS MVP (Subscription Service)
+Perfect for launching a software-as-a-service product.
+- **Vision**: A scalable, subscription-based web application.
+- **Architecture**: Monolith (for speed) or Serverless.
+- **Stack Options**:
+  - *JS/TS*: Next.js + Supabase + Stripe
+  - *Python*: Django + PostgreSQL + Stripe
+  - *PHP*: Laravel + MySQL + Paddle
+  - *Go*: Go Fiber + PostgreSQL
 
-## 📋 Template List
+### 2. AI Chatbot / Assistant
+Build your own LLM interface.
+- **Vision**: An intelligent conversational interface.
+- **Architecture**: Event-driven / Streaming response.
+- **Stack Options**:
+  - *Frontend*: Next.js / SvelteKit / Streamlit (Python)
+  - *AI Provider*: OpenAI / Anthropic / Local LLM (Ollama)
+  - *Vector DB*: Pinecone / Milvus / pgvector
 
-| Template | Description | Tech Stack | CLI Command |
-|----------|-------------|------------|-------------|
-| **1. SaaS MVP** | Standard B2B/B2C SaaS platform | Next.js, Supabase, Stripe | `saas-mvp` |
-| **2. AI App** | LLM-integrated app (Chat/GenAI) | Next.js, OpenAI, Pinecone | `ai-app` |
-| **3. E-Commerce** | Full-featured online store | Next.js, Shopify/Stripe | `ecommerce` |
-| **4. Mobile App** | Cross-platform mobile app | React Native, Supabase | `mobile-app` |
-| **5. Dashboard** | Admin panel & data analytics | React, Tremor, Postgres | `dashboard` |
-| **6. CMS** | Content Management System | Next.js, Sanity/Strapi | `cms` |
+### 3. E-commerce Store
+Online retail platform.
+- **Vision**: A fast, SEO-optimized shopping experience.
+- **Architecture**: Headless Commerce.
+- **Stack Options**:
+  - *Storefront*: Next.js / Nuxt / Hydrogen
+  - *Backend*: Shopify / MedusaJS (Open Source) / Saleor
+  - *CMS*: Strapi / Sanity
 
----
+### 4. Admin Dashboard / Internal Tool
+Business operations and data management.
+- **Vision**: Centralized control panel for data.
+- **Architecture**: SPA (Single Page App).
+- **Stack Options**:
+  - *Low-code*: Appsmith / Tooljet
+  - *React*: Refine / React Admin
+  - *Vue*: Vben Admin
+  - *Backend*: Directus / NestJS
 
-## 1. SaaS MVP Template
+### 5. Job Board / Listing Site
+Directory style platform.
+- **Vision**: Niche listing platform with search.
+- **Architecture**: SSR (Server Side Rendering) for SEO.
+- **Stack Options**:
+  - *Fullstack*: Remix / Next.js / Laravel
+  - *Search*: Algolia / Meilisearch (Open Source) / Elasticsearch
 
-**Best for**: Startups, Indie Hackers, B2B Tools.
+## 📱 Mobile & Desktop
 
-### Blueprint Content
+### 6. Cross-Platform Mobile App
+iOS and Android from one codebase.
+- **Vision**: Native-like mobile experience.
+- **Stack Options**:
+  - *React*: React Native (Expo)
+  - *Dart*: Flutter
+  - *Web-based*: Ionic / Capacitor
 
-```markdown
-# [Project Name] - SaaS MVP
+### 7. Desktop Application
+Native desktop apps using web or native tech.
+- **Vision**: High-performance desktop tool.
+- **Stack Options**:
+  - *Modern*: Tauri (Rust + Web)
+  - *Standard*: Electron (Node + Web)
+  - *Native*: .NET MAUI / Swift / Qt (C++)
 
-## Vision
-[Describe your product here. What problem does it solve? Who is the user?]
+### 8. Browser Extension
+Add-on for Chrome/Firefox/Edge.
+- **Vision**: Enhance browser functionality.
+- **Stack Options**:
+  - *Framework*: Plasmo / WXT
+  - *Core*: Vanilla JS / React / Vue
 
-## Tech Stack
-- **Frontend**: Next.js 14 (App Router), Tailwind CSS, Shadcn UI
-- **Backend**: Supabase (Auth, Database, Realtime)
-- **Payments**: Stripe
-- **Deployment**: Vercel
-- **Email**: Resend
+## 📝 Content & Community
 
-## Architecture
-- Client-side rendering for dashboard
-- Server components for SEO pages
-- Supabase RLS for security
-- Webhooks for Stripe events
+### 9. Personal Blog / Portfolio
+Showcase work and writing.
+- **Vision**: Fast, static content site.
+- **Architecture**: SSG (Static Site Generation).
+- **Stack Options**:
+  - *JS*: Astro / Next.js
+  - *Go*: Hugo
+  - *Ruby*: Jekyll
 
-## Database Schema
-```sql
--- Users & Auth
-CREATE TABLE users (
-  id UUID PRIMARY KEY REFERENCES auth.users,
-  email TEXT UNIQUE,
-  full_name TEXT,
-  avatar_url TEXT,
-  billing_status TEXT DEFAULT 'free',
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
+### 10. Documentation Site
+Technical docs.
+- **Vision**: Clear, searchable documentation.
+- **Stack Options**:
+  - *React*: Docusaurus / Nextra
+  - *Vue*: VitePress
+  - *Python*: MkDocs
 
--- Subscriptions (Stripe sync)
-CREATE TABLE subscriptions (
-  id TEXT PRIMARY KEY, -- Stripe ID
-  user_id UUID REFERENCES users(id),
-  status TEXT,
-  price_id TEXT,
-  current_period_end TIMESTAMPTZ
-);
+### 11. Community Forum
+Discussion platform.
+- **Vision**: Thread-based community hub.
+- **Stack Options**:
+  - *Modern*: Discourse (Ruby) / Flarum (PHP)
+  - *Custom*: Node.js + Prisma + PostgreSQL
 
--- Your Core Data
-CREATE TABLE items (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES users(id),
-  name TEXT NOT NULL,
-  description TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-```
+### 12. Learning Management System (LMS)
+Course platform.
+- **Vision**: Sell and manage online courses.
+- **Stack Options**:
+  - *Open Source*: Moodle / Open edX
+  - *Custom*: MERN Stack / Django
 
-## Implementation Roadmap
-### Week 1: Foundation
-- [ ] Setup Next.js + Supabase
-- [ ] Implement Auth (Login/Register/Reset)
-- [ ] Setup Stripe Checkout
+## 🛠️ Tools & Utilities
 
-### Week 2: Core Features
-- [ ] CRUD operations for items
-- [ ] Dashboard UI
-- [ ] User settings
+### 13. Chat / Messaging App
+Real-time communication.
+- **Vision**: Instant messaging with history.
+- **Architecture**: WebSocket / PubSub.
+- **Stack Options**:
+  - *Backend*: Go (Gorilla WebSocket) / Elixir (Phoenix) / Node.js (Socket.io)
+  - *Database*: ScyllaDB / Cassandra / Redis
 
-### Week 3: Launch Prep
-- [ ] Landing page
-- [ ] SEO meta tags
-- [ ] Analytics setup
+### 14. CLI Tool
+Developer utility.
+- **Vision**: Terminal-based productivity.
+- **Stack Options**:
+  - *Rust*: Clap
+  - *Go*: Cobra
+  - *Node*: Commander / Oclif
+  - *Python*: Typer / Click
 
-## Business Rules
-- Free tier: Max 5 items
-- Pro tier ($19/mo): Unlimited items
-- Trial: 14 days
-```
+### 15. High-Performance API
+Backend service.
+- **Vision**: Low latency API.
+- **Stack Options**:
+  - *Rust*: Actix / Axum
+  - *Go*: Gin / Echo
+  - *Java*: Spring Boot
+  - *C#*: ASP.NET Core
 
----
+## 🏢 Enterprise & Specialized
 
-## 2. AI-Powered App Template
+### 16. Real-time Collaboration (Whiteboard)
+Multiplayer canvas.
+- **Vision**: Collaborative visual workspace.
+- **Stack Options**:
+  - *Sync Engine*: Yjs / Automerge (CRDTs)
+  - *Backend*: Hocuspocus / Liveblocks
 
-**Best for**: Chatbots, Content Generators, Analysis Tools.
+### 17. Newsletter / Email Platform
+Marketing automation.
+- **Vision**: Email distribution.
+- **Stack Options**:
+  - *Self-hosted*: Listmonk (Go) / Mautic (PHP)
+  - *Cloud*: AWS SES + Custom Frontend
 
-### Blueprint Content
+### 18. Web3 / DApp
+Blockchain interaction.
+- **Vision**: Decentralized application.
+- **Stack Options**:
+  - *EVM*: Wagmi + Viem + Solidity
+  - *Solana*: Anchor + React
 
-```markdown
-# [Project Name] - AI App
+### 19. Social Media Dashboard
+Social management.
+- **Vision**: Schedule and analyze posts.
+- **Stack Options**:
+  - *Fullstack*: T3 Stack / Nuxt
+  - *Backend*: Serverless Functions
 
-## Vision
-[Describe your AI app. What does it use AI for?]
-
-## Tech Stack
-- **Frontend**: Next.js 14, Vercel AI SDK
-- **AI Model**: OpenAI GPT-4 / Claude 3
-- **Vector DB**: Pinecone / Supabase pgvector
-- **Backend**: Next.js API Routes (Edge Runtime)
-
-## Architecture
-- Streaming responses for best UX
-- RAG (Retrieval Augmented Generation) for context
-- Rate limiting to control costs
-
-## Database Schema
-```sql
--- Chats
-CREATE TABLE chats (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES users(id),
-  title TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Messages
-CREATE TABLE messages (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  chat_id UUID REFERENCES chats(id),
-  role TEXT CHECK (role IN ('user', 'assistant')),
-  content TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Documents (for RAG)
-CREATE TABLE documents (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  content TEXT,
-  embedding VECTOR(1536) -- OpenAI embedding size
-);
-```
-
-## Implementation Roadmap
-### Week 1: Chat Interface
-- [ ] Setup Vercel AI SDK
-- [ ] Chat UI (bubbles, streaming)
-- [ ] Basic OpenAI integration
-
-### Week 2: Advanced AI
-- [ ] Implement RAG (Vector search)
-- [ ] Prompt engineering & optimization
-- [ ] Chat history persistence
-
-### Week 3: Monetization
-- [ ] Token usage tracking
-- [ ] Credit system / Subscription
-```
-
----
-
-## 3. E-Commerce Template
-
-**Best for**: Online Stores, Digital Products, Marketplaces.
-
-### Blueprint Content
-
-```markdown
-# [Project Name] - E-Commerce Store
-
-## Vision
-[Describe your store. What do you sell? Who are the customers?]
-
-## Tech Stack
-- **Storefront**: Next.js 14 (Commerce)
-- **CMS/Backend**: Shopify (Headless) or MedusaJS
-- **Payments**: Stripe / PayPal
-- **Search**: Algolia
-
-## Architecture
-- Static Site Generation (SSG) for product pages (high speed)
-- Dynamic rendering for cart & checkout
-- Image optimization is critical
-
-## Database Schema (Custom Backend Example)
-```sql
--- Products
-CREATE TABLE products (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  slug TEXT UNIQUE,
-  price DECIMAL(10, 2),
-  inventory_count INT,
-  metadata JSONB
-);
-
--- Orders
-CREATE TABLE orders (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES users(id),
-  status TEXT DEFAULT 'pending',
-  total DECIMAL(10, 2),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Order Items
-CREATE TABLE order_items (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  order_id UUID REFERENCES orders(id),
-  product_id UUID REFERENCES products(id),
-  quantity INT,
-  price_at_purchase DECIMAL(10, 2)
-);
-```
-
-## Implementation Roadmap
-### Week 1: Catalog
-- [ ] Product listing page
-- [ ] Product detail page
-- [ ] Search & Filter
-
-### Week 2: Cart & Checkout
-- [ ] Shopping cart state
-- [ ] Checkout flow integration
-- [ ] Order confirmation
-
-### Week 3: Admin & Ops
-- [ ] Order management dashboard
-- [ ] Inventory tracking
-- [ ] Email notifications
-```
+### 20. Microservices System
+Large scale architecture.
+- **Vision**: Decoupled, scalable services.
+- **Architecture**: Event-driven Microservices.
+- **Stack Options**:
+  - *Orchestration*: Kubernetes / Docker Swarm
+  - *Communication*: gRPC / Kafka / RabbitMQ
+  - *Services*: Mix of Go, Java, Node.js
 
 ---
 
-## 4. Mobile App Template
+## 💡 How to choose?
 
-**Best for**: Social Apps, Utility Apps, On-demand Services.
+SBBL encourages you to choose the stack that fits your **team's expertise** and **project requirements**.
 
-### Blueprint Content
-
-```markdown
-# [Project Name] - Mobile App
-
-## Vision
-[Describe your mobile app. What are the key features?]
-
-## Tech Stack
-- **Framework**: React Native (Expo)
-- **Backend**: Supabase
-- **Navigation**: Expo Router
-- **State**: Zustand / TanStack Query
-
-## Architecture
-- Offline-first capability
-- Push notifications
-- Native device features (Camera, Location)
-
-## Database Schema
-```sql
--- Profiles (Extended)
-CREATE TABLE profiles (
-  id UUID PRIMARY KEY REFERENCES auth.users,
-  username TEXT UNIQUE,
-  push_token TEXT,
-  last_seen TIMESTAMPTZ
-);
-
--- Social Graph
-CREATE TABLE follows (
-  follower_id UUID REFERENCES profiles(id),
-  following_id UUID REFERENCES profiles(id),
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  PRIMARY KEY (follower_id, following_id)
-);
-```
-
-## Implementation Roadmap
-### Week 1: App Shell
-- [ ] Setup Expo project
-- [ ] Navigation structure (Tabs/Stack)
-- [ ] Auth screens
-
-### Week 2: Core UX
-- [ ] Main feed / dashboard
-- [ ] User interactions
-- [ ] Camera / Location integration
-
-### Week 3: Polish
-- [ ] Push notifications
-- [ ] App store assets
-- [ ] Performance tuning
-```
-
----
-
-## 5. Dashboard Template
-
-**Best for**: Analytics, Admin Panels, Internal Tools.
-
-### Blueprint Content
-
-```markdown
-# [Project Name] - Analytics Dashboard
-
-## Vision
-[Describe the dashboard. Who uses it? What data is shown?]
-
-## Tech Stack
-- **Frontend**: React (Vite) or Next.js
-- **Charts**: Tremor / Recharts
-- **Data Grid**: TanStack Table
-- **Backend**: Python (FastAPI) or Node.js
-
-## Architecture
-- Data visualization focus
-- Complex filtering & sorting
-- Export capabilities (CSV, PDF)
-
-## Database Schema
-```sql
--- Analytics Events
-CREATE TABLE events (
-  id UUID PRIMARY KEY,
-  event_type TEXT,
-  properties JSONB,
-  timestamp TIMESTAMPTZ
-);
-
--- Aggregated Stats (Materialized View)
-CREATE MATERIALIZED VIEW daily_stats AS
-SELECT
-  date_trunc('day', timestamp) as day,
-  event_type,
-  count(*) as count
-FROM events
-GROUP BY 1, 2;
-```
-
-## Implementation Roadmap
-### Week 1: Data Layer
-- [ ] API endpoints for metrics
-- [ ] Database aggregation queries
-- [ ] Auth & Permissions
-
-### Week 2: Visualization
-- [ ] Chart components
-- [ ] Date range pickers
-- [ ] Data tables with pagination
-
-### Week 3: Advanced Features
-- [ ] Export to CSV
-- [ ] Saved reports
-- [ ] Dark mode
-```
-
----
-
-## 6. CMS Template
-
-**Best for**: Blogs, News Sites, Documentation.
-
-### Blueprint Content
-
-```markdown
-# [Project Name] - Content Management System
-
-## Vision
-[Describe the CMS. What type of content? Who are the readers?]
-
-## Tech Stack
-- **Frontend**: Next.js 14
-- **Content Source**: MDX files / Sanity / Strapi
-- **Styling**: Tailwind Typography
-- **Search**: CommandBar / Algolia
-
-## Architecture
-- Static generation (SSG) for max performance
-- Incremental Static Regeneration (ISR) for updates
-- Image optimization
-
-## Content Model (Example for Headless CMS)
-```json
-{
-  "types": [
-    {
-      "name": "post",
-      "fields": [
-        { "name": "title", "type": "string" },
-        { "name": "slug", "type": "slug" },
-        { "name": "author", "type": "reference" },
-        { "name": "body", "type": "rich-text" },
-        { "name": "tags", "type": "array" }
-      ]
-    }
-  ]
-}
-```
-
-## Implementation Roadmap
-### Week 1: Content Structure
-- [ ] Define content models
-- [ ] Setup CMS connection
-- [ ] Blog listing page
-
-### Week 2: Rendering
-- [ ] Single post view
-- [ ] Markdown/Rich text rendering
-- [ ] Syntax highlighting
-
-### Week 3: Discovery
-- [ ] Search functionality
-- [ ] Categories & Tags
-- [ ] RSS Feed & Sitemap
-```
-
----
-
-## 🎯 Create Custom Template
-
-You can create your own template by creating a Markdown file following the structure above and saving it to the CLI templates directory.
-
-**File Structure**:
-```markdown
-# [Template Name]
-
-## Vision
-...
-
-## Tech Stack
-...
-
-## Architecture
-...
-
-## Database Schema
-...
-
-## Implementation Roadmap
-...
-
-## Business Rules
-...
-```
-
----
-
-**Need more templates?**
-Contribute by creating a Pull Request on our GitHub repo!
+- **Need Speed?** → Go with Monoliths (Laravel, Django, Next.js).
+- **Need Scale?** → Go with Go, Rust, Elixir.
+- **Need AI?** → Python is king, but JS/TS is catching up fast.

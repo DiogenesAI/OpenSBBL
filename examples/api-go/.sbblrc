@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "api-go",
+    "created": "2025-11-30T22:00:00.000Z"
+  },
+  "paths": {
+    "blueprint": "./BLUEPRINT.md",
+    "memory": "./memory",
+    "docs": "./docs"
+  }
+}

@@ -1,0 +1,115 @@
+{
+    "presets": [
+        {
+            "id": "saas-nextjs",
+            "name": "SaaS MVP (Node.js/Next.js)",
+            "description": "The modern JS stack: Next.js, Supabase, Stripe.",
+            "blueprint": {
+                "spark": {
+                    "vision": "A scalable, subscription-based web application.",
+                    "targetAudience": "Startups and Indie Hackers",
+                    "problem": "Need for speed and modern UX",
+                    "solution": "Full-stack JS application"
+                },
+                "techStack": {
+                    "frontend": [
+                        "Next.js",
+                        "TailwindCSS"
+                    ],
+                    "backend": [
+                        "Supabase",
+                        "Next.js API Routes"
+                    ],
+                    "database": [
+                        "PostgreSQL"
+                    ],
+                    "ai": [
+                        "OpenAI"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "saas-django",
+            "name": "SaaS MVP (Python/Django)",
+            "description": "The batteries-included stack: Django, PostgreSQL, Stripe.",
+            "blueprint": {
+                "spark": {
+                    "vision": "A robust, secure web application built for longevity.",
+                    "targetAudience": "Enterprises and Data-heavy apps",
+                    "problem": "Need for stability and rapid backend dev",
+                    "solution": "Django Monolith"
+                },
+                "techStack": {
+                    "frontend": [
+                        "Django Templates",
+                        "HTMX",
+                        "TailwindCSS"
+                    ],
+                    "backend": [
+                        "Django"
+                    ],
+                    "database": [
+                        "PostgreSQL"
+                    ],
+                    "ai": [
+                        "LangChain"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "api-go",
+            "name": "High-Performance API (Go)",
+            "description": "Low latency API service using Go Fiber/Gin.",
+            "blueprint": {
+                "spark": {
+                    "vision": "A high-performance microservice or API.",
+                    "targetAudience": "High-scale systems",
+                    "problem": "Latency and concurrency",
+                    "solution": "Go-based service"
+                },
+                "techStack": {
+                    "frontend": [
+                        "None (API Only)"
+                    ],
+                    "backend": [
+                        "Go",
+                        "Fiber"
+                    ],
+                    "database": [
+                        "PostgreSQL",
+                        "Redis"
+                    ],
+                    "ai": []
+                }
+            }
+        },
+        {
+            "id": "mobile-flutter",
+            "name": "Mobile App (Flutter)",
+            "description": "Cross-platform native performance with Dart.",
+            "blueprint": {
+                "spark": {
+                    "vision": "Beautiful native apps for iOS and Android.",
+                    "targetAudience": "Mobile users",
+                    "problem": "Fragmented mobile development",
+                    "solution": "Single codebase with Flutter"
+                },
+                "techStack": {
+                    "frontend": [
+                        "Flutter",
+                        "Dart"
+                    ],
+                    "backend": [
+                        "Firebase"
+                    ],
+                    "database": [
+                        "Firestore"
+                    ],
+                    "ai": []
+                }
+            }
+        }
+    ]
+}

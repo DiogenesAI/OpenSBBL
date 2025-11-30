@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "desktop-tauri",
+    "created": "2025-11-30T22:30:00.000Z"
+  },
+  "paths": {
+    "blueprint": "./BLUEPRINT.md",
+    "memory": "./memory",
+    "docs": "./docs"
+  }
+}
